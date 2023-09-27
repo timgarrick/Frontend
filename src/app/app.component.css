@@ -1,0 +1,11 @@
+.maincontainer
+{
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 0 10%; 
+    background-color: white;
+    border-left: 2px solid #3E3E3E; /* 2px solid black border on the left side */
+    border-right: 2px solid #3E3E3E; /* 2px solid black border on the right side */
+    /* Other styles for your element */   
+}

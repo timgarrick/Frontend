@@ -1,0 +1,38 @@
+<div class="container">
+  
+<div class="left-component"><app-jobs-nav (applyFiltersEvent)="onFilterChange($event)"></app-jobs-nav></div>
+
+
+
+<div class="right-component">
+  <br>
+<div class="job-list">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let job of filteredJobPostings" style="margin-right: 10px; margin-bottom: 10px;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ job.tags.join(', ') }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ job.jobTitle }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p><span style="font-weight: bold;">Location:</span> {{ job.city }}, {{ job.country }}</p>
+      <p><span style="font-weight: bold;">Salary:</span> £{{ job.salaryStart }} - £{{ job.salaryEnd }}</p>
+      <p><span style="font-weight: bold;">Job Description:</span> {{ job.jobDescription }}</p>
+      <p><span style="font-weight: bold;">Technologies Used:</span> {{ job.tags.join(', ') }}</p>
+      <p><span style="font-weight: bold;">Office Location:</span> {{ job.officeLocation }}</p>
+      <p><span style="font-weight: bold;">Role:</span> {{ job.role }}</p>
+      <p><span style="font-weight: bold;">Full-Time:</span> {{ job.isFullTime ? 'Yes' : 'No' }}</p>
+
+      <mat-action-row>
+        <button mat-mini-fab color="accent"><mat-icon>favorite</mat-icon></button>
+        <button mat-mini-fab color="primary"><mat-icon>bookmark</mat-icon>
+        </button>
+      </mat-action-row>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>
+</div>

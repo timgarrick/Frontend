@@ -1,0 +1,102 @@
+<br>
+<form class="formcss" #filterForm="ngForm">
+
+    <mat-form-field class="fullwidth" subscriptSizing="dynamic">
+      <mat-label>Search</mat-label>
+
+    <input [(ngModel)]="filter.jobTitle" (ngModelChange)="applyFilters()" matInput type="text" name="jobTitle" placeholder="Search jobs">
+  </mat-form-field>
+  <br>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Location
+        </mat-panel-title>
+        
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input [(ngModel)]="filter.city" (ngModelChange)="applyFilters()" matInput type="text" name="city" placeholder="Search City">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input [(ngModel)]="filter.country" (ngModelChange)="applyFilters()" matInput type="text" name="country" placeholder="Search Country">
+      </mat-form-field>
+
+
+
+      <div *ngFor="let country of countriesAndCities; let i = index">
+        <mat-checkbox>
+          {{ country.country }}
+        </mat-checkbox>
+        <ul>
+          <li *ngFor="let city of country.cities">
+            <mat-checkbox>
+              {{ city }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </div>
+  
+  
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-card>
+    <mat-card-content>
+  <p class="navheader2">Salary</p>
+  <mat-slider
+    [(ngModel)]="filter.salaryRange"
+    name="filter.salaryRange"
+    (input)="applyFilters()"
+    value="50000"
+    min="0"
+    max="100000"
+    step="1000" 
+    discrete
+    [displayWith]="formatLabel">
+    <input matSliderStartThumb>
+    <input matSliderEndThumb>
+</mat-slider>
+</mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+
+<p class="navheader2">Office Location</p>
+<section>
+  
+  <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
+    <mat-button-toggle value="flour">Office</mat-button-toggle>
+    <mat-button-toggle value="eggs">Hybrid</mat-button-toggle>
+    <mat-button-toggle value="sugar">Remote</mat-button-toggle>
+  </mat-button-toggle-group>
+</section>
+</mat-card-content>
+</mat-card>
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Technologies
+      </mat-panel-title>
+      
+    </mat-expansion-panel-header>
+    <div *ngFor="let technology of jobTechnologies; let i = index">
+      <mat-checkbox
+        [(ngModel)]="selectedTechnologies[i]"
+        [value]="technology"
+        (ngModelChange)="applyFilters()"
+        name='"tags" + i'
+      >
+        {{ technology }}
+      </mat-checkbox>
+    </div>
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+</form>

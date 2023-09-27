@@ -1,0 +1,6 @@
+.navbar {
+    height: 75px;
+    width: 100%;
+    display: flex; /* Make it a flex container */
+    justify-content:flex-end; 
+}

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  flex-basis: 80%; 
+  }
+
+  .navmainheader
+  {
+    font-size:200% ;
+    color: #cccccc;
+  }
+
+  .fullwidth {
+    width: 90%;
+  }
+
+  .left-component
+  {
+    flex: 1;
+    flex-basis: 20%;
+    background-color: #1f2833;
+  } 
+  
+  .right-component {
+    flex: 1;
+    flex-basis: 80%; 
+    background: linear-gradient(to right, #1f2833, #45A29E);
+    height: 100%;
+  }
+  .joblist {
+    width: 250px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+  }
